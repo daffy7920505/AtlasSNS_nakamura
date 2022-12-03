@@ -51,4 +51,14 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+        // logoutファンクションを作成
+    public function logout(Request $request)
+    {
+
+        Auth::logout();
+        // $this->performLogout($request);
+// redirect先は人それぞれカスタマイズ
+        return redirect('/login');
+    }
+
 }

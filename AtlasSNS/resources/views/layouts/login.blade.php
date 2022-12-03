@@ -8,6 +8,9 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link rel="stylesheet" href="{{ asset('js/script.js') }} ">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./js/main.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -18,20 +21,29 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+
 </head>
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        </div>
+            <div id="top">
+                <div id="top-menu">
+                    <p> 〇〇さん<img src="images/icon1.png"></p>
+                </div>
+<dl class="ac">
+    <dt class="ac-parent">メニュー1</dt>
+    <dd class="ac-child">
+      <dl>
+        <dt class="ac-child__item"><a href="/top">HOME</a></dt>
+        <dt class="ac-child__item"><a href="/profile">プロフィール編集</a></dt>
+        <dt class="ac-child__item"><a href="/logout">ログアウト</a></dt>
+
+       </dl>
+    </dd>
+  </dl>
+
             </div>
         </div>
     </header>
@@ -44,21 +56,22 @@
                 <p>〇〇さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/Follow">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ Auth::user()->followers()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/Follower">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
+    <script src="{{asset('js/script.js')}}"></script>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+
 </body>
 </html>
