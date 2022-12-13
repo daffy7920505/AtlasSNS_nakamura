@@ -18,7 +18,7 @@
                 <td>{{ $users->username }}</td>
                 <td>{{ $users->post }}</td>
                 <td>{{ $users->created_at }}</td>
-                @if (auth()->user()->isFollowed($users->id))
+                @if (auth()->user()->isFollowing($users->id))
                 <td><a class="btn btn-primary" href="/follow-delete/{{$users->id}}">フォロー解除</a></td>
                 @else
                 {{ csrf_field() }}
