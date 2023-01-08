@@ -19,5 +19,34 @@ class UsersController extends Controller
 
         return view('users.search',['users'=>$users]);
     }
+    /**
+     * プロフィール編集画面表示
+     * @param
+     * @return View プロフィール編集画面
+     */
+    public function show()
+    {
+        $user->id
+        return view('users.profile');
+    }
 
+    /**
+     * プロフィール編集機能（ユーザー名、メールアドレス）
+     * @param
+     * @return Redirect 一覧ページ-メッセージ（プロフィール更新完了）
+     */
+    public function profileUpdate()
+    {
+        return redirect()->route('articles_index')->with('msg_success', 'プロフィールの更新が完了しました');
+    }
+
+    /**
+     * パスワード編集機能
+     * @param
+     * @return Redirect 一覧ページ-メッセージ（パスワード更新完了）
+     */
+    public function passwordUpdate()
+    {
+        return redirect()->route('articles_index')->with('msg_success', 'パスワードの更新が完了しました');
+    }
 }

@@ -88,3 +88,13 @@ Route::get('/Following','FollowsController@followlist');
 
 // フォロー解除の更新
 //Route::get('/Follows','FollowsController@followlist');
+
+Route::group(['middleware' => 'auth'], function(){
+
+//プロフィール編集画面表示
+Route::get('/profile', 'UsersController@show')->name('profile');
+//プロフィール編集
+Route::put('/profile', 'UsersController@profileUpdate')->name('profile_edit');
+//パスワード編集
+Route::put('/password_change', 'UsersController@passwordUpdate')->name('password_edit');
+});

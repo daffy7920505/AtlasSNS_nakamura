@@ -19,4 +19,5 @@ class UsersTableSeeder extends Seeder
             // 'bio' => 'ラーメン',
         ]);
     }
+
 }
